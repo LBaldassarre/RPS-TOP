@@ -5,9 +5,8 @@ function getComputerChoice() {
     return choice
 }
 
-function round(playerChoice) {
-    let computerChoice = getComputerChoice();
-    let playerChoiceUpper = playerChoice.toUpperCase();
+function playRound(playerChoice, computerChoice) {
+    const playerChoiceUpper = playerChoice.toUpperCase();
     
     let alert = ""
 
@@ -17,32 +16,32 @@ function round(playerChoice) {
     switch (true) {
 
         case (playerChoiceUpper === "ROCK" && computerChoice === "PAPER") :
-            alert = "You Lose! Paper beats Rock";
+            alert = "You Lose the round! Paper beats Rock";
             result = 2;
             break;
         
         case (playerChoiceUpper === "ROCK" && computerChoice === "SCISORS") :
-            alert = "You Win! Rock beats Scisors";
+            alert = "You Win the round! Rock beats Scisors";
             result = 1;
             break;
         
         case (playerChoiceUpper === "PAPER" && computerChoice === "ROCK") :
-            alert = "You Win! Paper beats Rock";
+            alert = "You Win the round! Paper beats Rock";
             result = 1;
             break;
 
         case (playerChoiceUpper === "PAPER" && computerChoice === "SCISORS") :
-            alert = "You Lose! Scisors beats Paper";
+            alert = "You Lose the round! Scisors beats Paper";
             result = 2;
             break;
 
         case (playerChoiceUpper === "SCISORS" && computerChoice === "ROCK") :
-            alert = "You Lose! Rock beats Scisors";
+            alert = "You Lose the round! Rock beats Scisors";
             result = 2;
             break;
 
         case (playerChoiceUpper === "SCISORS" && computerChoice === "PAPER") :
-            alert = "You Win! Scisors beats Paper";
+            alert = "You Win the round! Scisors beats Paper";
             result = 1;
             break;
         
@@ -58,4 +57,6 @@ function round(playerChoice) {
     return result
 }
 
-console.log(round("scisors"))
+const playerChoice = "rock"
+const computerChoice = getComputerChoice()
+console.log(playRound(playerChoice, computerChoice))
