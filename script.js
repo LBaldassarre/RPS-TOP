@@ -52,11 +52,44 @@ function playRound(playerChoice, computerChoice) {
     }
 
     console.log(alert)
-    console.log("Youre choice: " + playerChoiceUpper + ", the computer choice: " + computerChoice)
 
     return result
 }
 
-const playerChoice = "rock"
-const computerChoice = getComputerChoice()
-console.log(playRound(playerChoice, computerChoice))
+function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    let alert = ""
+
+    for (let i = 0; i < 5; i++) {
+
+        // Replaying ties
+        
+        let result = 0
+        while(result === 0) {
+        const computerChoice = getComputerChoice();
+        const playerChoice = prompt("What do you want to play, Rock, Paper or Scisors?");
+        result = playRound(playerChoice,computerChoice);
+        }
+
+        if (result === 1) {
+            playerScore += 1
+        } 
+        else if (result === 2) {
+            computerScore += 1
+        }
+
+
+    }
+
+    if (playerScore > computerScore) {
+        alert = `Congratulations!! You are the winner!!!
+Your score: ${playerScore}, the computer score: ${computerScore}`
+    }
+    else if (computerScore > playerScore) {
+        alert = `You lost the game, good luck next time! 
+Your score: ${playerScore}, the computer score: ${computerScore}`
+    }
+
+    console.log(alert);
+}
