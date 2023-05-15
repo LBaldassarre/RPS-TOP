@@ -75,6 +75,11 @@ div {
     align-items: center;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .round__choice__icon, .round__choice__points {
     width: 10%;
     height: 30%;
@@ -102,7 +107,21 @@ div {
 
 .round__result-text {
     flex: 1;
-    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round__result-next {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round__result-next > img {
+    width: 40%;
 }
 
 .left_pane {
