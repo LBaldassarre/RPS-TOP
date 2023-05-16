@@ -9,21 +9,27 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
+    padding-right: 100px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
 }
 
-section {
+/* section {
     border: 1px solid black;
 }
 
 div {
     border: 1px solid blue;
-}
+} */
 
 .header {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 50px;
 }
 
 .main {
@@ -58,6 +64,7 @@ div {
     flex: 1;
     flex-grow: 2;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .round__choice__rps {
@@ -67,6 +74,7 @@ div {
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .round__choice__rps-option {
@@ -76,6 +84,7 @@ div {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 img {
@@ -98,6 +107,7 @@ img {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .round__choice__icon {
@@ -116,6 +126,7 @@ img {
     align-items: center;
     gap: 10px;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .round__result-text {
@@ -125,6 +136,7 @@ img {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    font-size: 30px;
 }
 
 .round__result-next {
@@ -149,16 +161,18 @@ img {
 .rules {
     flex: 1;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .rules__header, .game_log__header {
-    padding: 5px;
+    padding: 10px;
     border-bottom: 2px solid black;
 }
 
 .rules__text {
     flex: 1;
     flex-grow: 3;
+    padding: 10px;
 }
 
 .game_log {
@@ -167,10 +181,12 @@ img {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    box-shadow: 0 0 15px 1px rgb(175, 175, 175);
 }
 
 .game_log__text{
     flex: 1;
     flex-grow: 4;
+    padding: 10px;
 }
 
