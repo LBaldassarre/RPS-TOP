@@ -106,7 +106,7 @@ div {
     cursor: pointer;
 }
 
-.round__choice__rps-option:hover {
+.option_pc_hover:hover {
     transform: scale(1.2);
     background-color: var(--accent-color);
 }
@@ -145,8 +145,16 @@ img {
     margin: 0 10px 0 20px;
 }
 
-.selected {
-    background-color: #3f5f39;
+.win {
+    background-color: green;
+}
+
+.lose {
+    background-color: red;
+}
+
+.tie {
+    background-color: yellow;
 }
 
 .round__result {
