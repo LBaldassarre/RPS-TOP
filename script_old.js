@@ -1,12 +1,12 @@
 
 function getComputerChoice() {
-    let choices = ["ROCK", "PAPER", "SCISORS"];
+    let choices = ["rock", "paper", "scissors"];
     let choice = choices[Math.floor(Math.random() * choices.length)];
     return choice
 }
 
 function playRound(playerChoice, computerChoice) {
-    const playerChoiceUpper = playerChoice.toUpperCase();
+    const playerChoiceUpper = playerChoice.toLoweCase();
     
     let alert = ""
 

@@ -145,6 +145,10 @@ img {
     margin: 0 10px 0 20px;
 }
 
+.selected {
+    background-color: #3f5f39;
+}
+
 .round__result {
     width: 40%;
     height: 50px;
