@@ -65,14 +65,14 @@ const pc_score = document.querySelector('.points_pc');
 const rps_npc = document.querySelectorAll('.option_npc');
 const rps_pc = document.querySelectorAll('.option_pc');
 
-rps_npc.forEach(npc_op => 
-    npc_op.addEventListener('click', () => console.log(npc_op.dataset.key))
-    );
+// Starting global variables
+let npc_points = 0;
+let pc_points = 0;
+let points_to_win = 5;
 
+// Play round base on user click
 rps_pc.forEach(pc_op => 
     pc_op.addEventListener('click', () => {
-        //console.log(pc_op.dataset.key);
-        //pc_op.classList.add('selected');
 
         // Get choices and play round
         pc_op.classList.remove('option_pc_hover');
@@ -86,16 +86,28 @@ rps_pc.forEach(pc_op =>
             pc_op.classList.add('win');
             rps_npc[ran_npc_choice].classList.add('lose');
             result_text.innerHTML = 'You Won!'
+            pc_points += 1;
+            pc_score.innerHTML = pc_points;
         }
         else if (result == 2) {
             pc_op.classList.add('lose');
             rps_npc[ran_npc_choice].classList.add('win');
             result_text.innerHTML = 'You Lose'
+            npc_points += 1;
+            npc_score.innerHTML = npc_points;
         }
         else {
             pc_op.classList.add('tie');
             rps_npc[ran_npc_choice].classList.add('tie');
             result_text.innerHTML = 'That\'s a Tie'
+        }
+
+        // Check for game end
+        if (pc_points == points_to_win) {
+            alert('You won!');
+        }
+        else if (npc_points == points_to_win) {
+            alert('You lost');
         }
     }
     ));
