@@ -50,7 +50,7 @@ div {
     align-items: top;
 }
 
-.right_pane {
+.left_pane {
     padding: 10px;
     flex: 1;
     flex-grow: 2.5;
@@ -199,7 +199,7 @@ img {
 }
 
 
-.left_pane {
+.right_pane {
     flex: 1;
     padding: 10px;
     display: flex;
