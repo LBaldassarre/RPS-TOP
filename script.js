@@ -64,8 +64,12 @@ const npc_score = document.querySelector('.points_npc');
 const pc_score = document.querySelector('.points_pc');
 const rps_npc = document.querySelectorAll('.option_npc');
 const rps_pc = document.querySelectorAll('.option_pc');
+const game_log_text = document.querySelector('.game_log__text')
 
 // Starting global variables
+let game_log_HTML = '';
+let game_log_scrollTop = 0;
+let round = 0;
 let npc_points = 0;
 let pc_points = 0;
 let points_to_win = 5;
@@ -80,6 +84,7 @@ rps_pc.forEach(pc_op =>
         const npc_choice = rps_npc[ran_npc_choice].dataset.key;
         const pc_choice = pc_op.dataset.key;
         result = playRound(pc_choice, npc_choice);
+        round += 1;
 
         // Change chocie background based on the result
         if (result == 1) {
@@ -88,25 +93,50 @@ rps_pc.forEach(pc_op =>
             result_text.innerHTML = 'You Won!'
             pc_points += 1;
             pc_score.innerHTML = pc_points;
+            game_log_HTML +=  `<br> Round: ${round} <br>
+            ${pc_choice.toUpperCase()} > ${npc_choice.toUpperCase()} <br>
+            You Won! <br>`;
+            game_log_scrollTop += 100;
         }
         else if (result == 2) {
             pc_op.classList.add('lose');
             rps_npc[ran_npc_choice].classList.add('win');
-            result_text.innerHTML = 'You Lose'
+            result_text.innerHTML = 'You Lost'
             npc_points += 1;
             npc_score.innerHTML = npc_points;
+            game_log_HTML += `<br> Round: ${round} <br>
+            ${pc_choice.toUpperCase()} < ${npc_choice.toUpperCase()} <br>
+            You Lost <br>`;
+            game_log_scrollTop += 100;
         }
         else {
             pc_op.classList.add('tie');
             rps_npc[ran_npc_choice].classList.add('tie');
             result_text.innerHTML = 'That\'s a Tie'
+            game_log_HTML +=  `<br> Round: ${round} <br>
+            ${pc_choice.toUpperCase()} = ${npc_choice.toUpperCase()} <br>
+            That\'s a Tie <br>`;
+            game_log_scrollTop += 100;
         }
+
+        game_log_text.innerHTML = game_log_HTML;
+        game_log_text.scrollTop = game_log_scrollTop;
 
         // Check for game end
         if (pc_points == points_to_win) {
+            game_log_HTML +=  `<br> Congratulations you won the match! <br>
+            ${pc_points} - ${npc_points} <br>`;
+            game_log_scrollTop += 100;
+            game_log_text.innerHTML = game_log_HTML;
+            game_log_text.scrollTop = game_log_scrollTop;
             alert('You won!');
         }
         else if (npc_points == points_to_win) {
+            game_log_HTML +=  `<br> Bad news, you lost <br>
+            ${pc_points} - ${npc_points} <br>`;
+            game_log_scrollTop += 100;
+            game_log_text.innerHTML = game_log_HTML;
+            game_log_text.scrollTop = game_log_scrollTop;
             alert('You lost');
         }
     }

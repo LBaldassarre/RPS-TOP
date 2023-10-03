@@ -244,6 +244,8 @@ img {
 .game_log__text{
     flex: 1;
     flex-grow: 4;
+    max-height: 200px;
     padding: 10px;
+    overflow-y: scroll;
 }
 
