@@ -67,12 +67,27 @@ const rps_pc = document.querySelectorAll('.option_pc');
 const game_log_text = document.querySelector('.game_log__text')
 
 // Starting global variables
-let game_log_HTML = '';
+let game_log_HTML = game_log_text.innerHTML;
 let game_log_scrollTop = 0;
 let round = 0;
 let npc_points = 0;
 let pc_points = 0;
 let points_to_win = 5;
+
+// Result next action
+result_next.addEventListener('click', () => {
+    let choices = [0, 1, 2];
+    for (i in choices) {
+        rps_npc[i].classList.remove('lose');
+        rps_npc[i].classList.remove('win');
+        rps_npc[i].classList.remove('tie');
+    }
+    for (i in choices) {
+        rps_pc[i].classList.remove('lose');
+        rps_pc[i].classList.remove('win');
+        rps_pc[i].classList.remove('tie');
+    }
+})
 
 // Play round base on user click
 rps_pc.forEach(pc_op => 
