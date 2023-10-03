@@ -112,7 +112,6 @@ rps_pc.forEach(pc_op =>
     pc_op.addEventListener('click', () => {
 
         // Get choices and play round
-        pc_op.classList.remove('option_pc_hover');
         const ran_npc_choice = getComputerChoice();
         const npc_choice = rps_npc[ran_npc_choice].dataset.key;
         const pc_choice = pc_op.dataset.key;
