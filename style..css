@@ -147,14 +147,17 @@ img {
 
 .win {
     background-color: green;
+    transform: scale(1.1);
 }
 
 .lose {
     background-color: red;
+    transform: scale(1.1);
 }
 
 .tie {
     background-color: yellow;
+    transform: scale(1.1);
 }
 
 .round__result {

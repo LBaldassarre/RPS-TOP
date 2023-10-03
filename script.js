@@ -65,16 +65,24 @@ const pc_score = document.querySelector('.points_pc');
 const rps_npc = document.querySelectorAll('.option_npc');
 const rps_pc = document.querySelectorAll('.option_pc');
 const pc_options_div = document.querySelector('.round__pc');
-const block_div = document.querySelector('.block_div');
+const round_block = document.querySelector('.round_block');
 const game_log_text = document.querySelector('.game_log__text');
+const game_block = document.querySelector('.game_block');
 
-// Initializing block_div at inactive state
-block_div.style.position = 'fixed';
-block_div.style.top = '0';
-block_div.style.left = '0';
-block_div.style.width = '0';
-block_div.style.height = '0';
-block_div.style.zIndex = '99999';
+// Initializing round and game block at inactive state
+round_block.style.position = 'fixed';
+round_block.style.top = '0';
+round_block.style.left = '0';
+round_block.style.width = '0';
+round_block.style.height = '0';
+round_block.style.zIndex = '99999';
+
+game_block.style.position = 'fixed';
+game_block.style.top = '0';
+game_block.style.left = '0';
+game_block.style.width = '0';
+game_block.style.height = '0';
+game_block.style.zIndex = '99999';
 
 // Starting global variables
 let game_log_HTML = game_log_text.innerHTML;
@@ -98,13 +106,13 @@ result_next.addEventListener('click', () => {
         rps_pc[i].classList.remove('tie');
     }
 
-    // Removing block_div
-    block_div.style.position = 'fixed';
-    block_div.style.top = '0';
-    block_div.style.left = '0';
-    block_div.style.width = '0';
-    block_div.style.height = '0';
-    block_div.style.zIndex = '99999';
+    // Removing round_block
+    round_block.style.position = 'fixed';
+    round_block.style.top = '0';
+    round_block.style.left = '0';
+    round_block.style.width = '0';
+    round_block.style.height = '0';
+    round_block.style.zIndex = '99999';
 })
 
 // Play round base on user click
@@ -156,33 +164,41 @@ rps_pc.forEach(pc_op =>
 
         // Check for game end
         if (pc_points == points_to_win) {
+            // Update game log
             game_log_HTML +=  `<br> Congratulations you won the match! <br>
             ${pc_points} - ${npc_points} <br>`;
             game_log_scrollTop += 100;
             game_log_text.innerHTML = game_log_HTML;
             game_log_text.scrollTop = game_log_scrollTop;
-            alert('You won!');
+
+            // Block game
+            game_block.style.width = '100%';
+            game_block.style.height = '100%';
         }
         else if (npc_points == points_to_win) {
+            // Update game log
             game_log_HTML +=  `<br> Bad news, you lost <br>
             ${pc_points} - ${npc_points} <br>`;
             game_log_scrollTop += 100;
             game_log_text.innerHTML = game_log_HTML;
             game_log_text.scrollTop = game_log_scrollTop;
-            alert('You lost');
+
+            // Block game
+            game_block.style.width = '100%';
+            game_block.style.height = '100%';
         }
 
-        // Blocking user options with the block_div
-        let block_div_y = pc_options_div.offsetTop;
-        let block_div_x = pc_options_div.offsetLeft;
-        let block_div_height = pc_options_div.clientHeight;
-        let block_div_width = pc_options_div.clientWidth;
+        // Blocking user options with the round_block
+        let round_block_y = pc_options_div.offsetTop;
+        let round_block_x = pc_options_div.offsetLeft;
+        let round_block_height = pc_options_div.clientHeight;
+        let round_block_width = pc_options_div.clientWidth;
 
-        block_div.style.position = 'fixed';
-        block_div.style.top = `${block_div_y}px`;
-        block_div.style.left = `${block_div_x}px`;
-        block_div.style.height = `${block_div_height}px`;
-        block_div.style.width = `${block_div_width}px`;
-        block_div.style.zIndex = '0';
+        round_block.style.position = 'fixed';
+        round_block.style.top = `${round_block_y}px`;
+        round_block.style.left = `${round_block_x}px`;
+        round_block.style.height = `${round_block_height}px`;
+        round_block.style.width = `${round_block_width}px`;
+        round_block.style.zIndex = '0';
     }
     ));
