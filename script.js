@@ -94,7 +94,7 @@ let game_log_scrollTop = 0;
 let round = 0;
 let npc_points = 0;
 let pc_points = 0;
-let points_to_win = 2;
+let points_to_win = 5;
 
 // Result next action
 result_next.addEventListener('click', () => {
