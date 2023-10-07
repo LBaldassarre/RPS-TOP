@@ -21,7 +21,7 @@ function playRound(playerChoice, computerChoice) {
             result = 2;
             break;
         
-        case (playerChoiceUpper === "ROCK" && computerChoiceUpper === "SCISORS") :
+        case (playerChoiceUpper === "ROCK" && computerChoiceUpper === "SCISSORS") :
             alert = "You Win the round! Rock beats Scisors";
             result = 1;
             break;
