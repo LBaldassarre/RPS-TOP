@@ -67,6 +67,7 @@ const rps_pc = document.querySelectorAll('.option_pc');
 const pc_options_div = document.querySelector('.round__pc');
 const round_block = document.querySelector('.round_block');
 const game_log_text = document.querySelector('.game_log__text');
+const left_pane = document.querySelector('.left_pane');
 const game_block = document.querySelector('.game_block');
 
 // Initializing round and game block at inactive state
@@ -75,14 +76,14 @@ round_block.style.top = '0';
 round_block.style.left = '0';
 round_block.style.width = '0';
 round_block.style.height = '0';
-round_block.style.zIndex = '99999';
+round_block.style.zIndex = '999991';
 
 game_block.style.position = 'fixed';
 game_block.style.top = '0';
 game_block.style.left = '0';
 game_block.style.width = '0';
 game_block.style.height = '0';
-game_block.style.zIndex = '99999';
+game_block.style.zIndex = '999992';
 
 // Starting global variables
 let game_log_HTML = game_log_text.innerHTML;
@@ -90,7 +91,7 @@ let game_log_scrollTop = 0;
 let round = 0;
 let npc_points = 0;
 let pc_points = 0;
-let points_to_win = 5;
+let points_to_win = 2;
 
 // Result next action
 result_next.addEventListener('click', () => {
@@ -112,7 +113,7 @@ result_next.addEventListener('click', () => {
     round_block.style.left = '0';
     round_block.style.width = '0';
     round_block.style.height = '0';
-    round_block.style.zIndex = '99999';
+    round_block.style.zIndex = '999991';
 })
 
 // Play round base on user click
@@ -172,8 +173,17 @@ rps_pc.forEach(pc_op =>
             game_log_text.scrollTop = game_log_scrollTop;
 
             // Block game
-            game_block.style.width = '100%';
-            game_block.style.height = '100%';
+            let game_block_y = left_pane.offsetTop;
+            let game_block_x = left_pane.offsetLeft;
+            let game_block_height = left_pane.clientHeight;
+            let game_block_width = left_pane.clientWidth;
+
+            game_block.style.position = 'fixed';
+            game_block.style.top = `${game_block_y}px`;
+            game_block.style.left = `${game_block_x}px`;
+            game_block.style.height = `${game_block_height}px`;
+            game_block.style.width = `${game_block_width}px`;
+            game_block.style.zIndex = '0';
         }
         else if (npc_points == points_to_win) {
             // Update game log
@@ -184,8 +194,17 @@ rps_pc.forEach(pc_op =>
             game_log_text.scrollTop = game_log_scrollTop;
 
             // Block game
-            game_block.style.width = '100%';
-            game_block.style.height = '100%';
+            let game_block_y = left_pane.offsetTop;
+            let game_block_x = left_pane.offsetLeft;
+            let game_block_height = left_pane.clientHeight;
+            let game_block_width = left_pane.clientWidth;
+
+            game_block.style.position = 'fixed';
+            game_block.style.top = `${game_block_y}px`;
+            game_block.style.left = `${game_block_x}px`;
+            game_block.style.height = `${game_block_height}px`;
+            game_block.style.width = `${game_block_width}px`;
+            game_block.style.zIndex = '0';
         }
 
         // Blocking user options with the round_block
