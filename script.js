@@ -69,6 +69,8 @@ const round_block = document.querySelector('.round_block');
 const game_log_text = document.querySelector('.game_log__text');
 const left_pane = document.querySelector('.left_pane');
 const game_block = document.querySelector('.game_block');
+const game_end_message = document.querySelector('.message');
+const game_end_button = document.querySelector('.refresh_button');
 
 // Initializing round and game block at inactive state
 round_block.style.position = 'fixed';
@@ -84,6 +86,7 @@ game_block.style.left = '0';
 game_block.style.width = '0';
 game_block.style.height = '0';
 game_block.style.zIndex = '999992';
+game_block.style.display = 'none';
 
 // Starting global variables
 let game_log_HTML = game_log_text.innerHTML;
@@ -178,12 +181,14 @@ rps_pc.forEach(pc_op =>
             let game_block_height = left_pane.clientHeight;
             let game_block_width = left_pane.clientWidth;
 
+            game_end_message.innerHTML = 'Congratulations you won the match! <br> If you want to play again click the refresh button bellow <br>'
             game_block.style.position = 'fixed';
             game_block.style.top = `${game_block_y}px`;
             game_block.style.left = `${game_block_x}px`;
             game_block.style.height = `${game_block_height}px`;
             game_block.style.width = `${game_block_width}px`;
             game_block.style.zIndex = '0';
+            game_block.style.display = 'flex';
         }
         else if (npc_points == points_to_win) {
             // Update game log
@@ -199,12 +204,14 @@ rps_pc.forEach(pc_op =>
             let game_block_height = left_pane.clientHeight;
             let game_block_width = left_pane.clientWidth;
 
+            game_end_message.innerHTML = 'Bad news, you lost <br> If you want to play again click the refresh button bellow <br>'
             game_block.style.position = 'fixed';
             game_block.style.top = `${game_block_y}px`;
             game_block.style.left = `${game_block_x}px`;
             game_block.style.height = `${game_block_height}px`;
             game_block.style.width = `${game_block_width}px`;
             game_block.style.zIndex = '0';
+            game_block.style.display = 'flex';
         }
 
         // Blocking user options with the round_block

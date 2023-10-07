@@ -299,3 +299,25 @@ OLD RIGHT PANE
     padding: 10px;
     overflow-y: scroll;
 } 
+
+.game_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game_end_message {
+    flex: 1;
+    flex-grow: 3;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 30px;
+    color: #000;
+}
+
+.game_end_message_spacer {
+    flex: 1;
+}
