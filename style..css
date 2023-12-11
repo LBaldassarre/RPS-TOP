@@ -16,8 +16,6 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding-bottom: 50px;
-    padding-right: 100px;
     font-family: 'Josefin Sans', sans-serif;
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
@@ -38,8 +36,9 @@ div {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 50px;
+    justify-content: start;
+    padding-left: 3%;
+    font-size: 20px;
 }
 
 .main {
@@ -47,6 +46,8 @@ div {
     flex-grow: 6;
     display: flex;
     justify-content: center;
+    margin-right: 3em;
+    margin-bottom: 3em;
     align-items: top;
 }
 
@@ -92,13 +93,13 @@ div {
 }
 
 .round__choice__rps-option {
-    height: 120px;
-    width: 120px;
+    width: 17%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid var(--primary-color);
-    border-radius: 50%;
+    border-radius: 5%;
     box-shadow: 0 0 15px 1px var(--primary-color);
     background-color: var(--secondary-color);
     transform: scale(1);
@@ -112,8 +113,7 @@ div {
 }
 
 img {
-    max-width: 70%;
-    max-height: 70%;
+    max-width: 50%;
 }
 
 .rock {
@@ -257,13 +257,16 @@ OLD RIGHT PANE
 
 .right_pane {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     gap: 20px;
 }
 
 .rules {
+    display: flex;
+    flex-direction: column;
     height: 20vh;
-    margin-bottom: 25px;
     border-radius: 10px;
     border: 2px solid var(--primary-color);
     box-shadow: 0 0 15px 1px var(--accent-color);
@@ -285,6 +288,8 @@ OLD RIGHT PANE
 }
 
 .game_log {
+    display: flex;
+    flex-direction: column;
     height: 50vh;
     border-radius: 10px;
     border: 2px solid var(--primary-color);
